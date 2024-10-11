@@ -1,7 +1,8 @@
 FROM redis:alpine
 
+USER root
+RUN mkdir -p /data && chown -R redis:redis /data && chmod 777 /data
 USER redis
-RUN mkdir -p /data && chown redis:redis /data
 
 EXPOSE 6379
 CMD ["redis-server"]
